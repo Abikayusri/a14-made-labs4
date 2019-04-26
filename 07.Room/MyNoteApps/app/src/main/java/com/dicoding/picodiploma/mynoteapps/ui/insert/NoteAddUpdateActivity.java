@@ -62,16 +62,16 @@ public class NoteAddUpdateActivity extends AppCompatActivity {
         String btnTitle;
 
         if (isEdit) {
-            actionBarTitle = "Ubah";
-            btnTitle = "Update";
+            actionBarTitle = getString(R.string.change);
+            btnTitle = getString(R.string.update);
 
             if (note != null) {
                 edtTitle.setText(note.getTitle());
                 edtDescription.setText(note.getDescription());
             }
         } else {
-            actionBarTitle = "Tambah";
-            btnTitle = "Simpan";
+            actionBarTitle = getString(R.string.add);
+            btnTitle = getString(R.string.save);
         }
 
         if (getSupportActionBar() != null) {
@@ -89,9 +89,9 @@ public class NoteAddUpdateActivity extends AppCompatActivity {
                 String description = edtDescription.getText().toString().trim();
 
                 if (title.isEmpty()) {
-                    edtTitle.setError("Field can not be blank");
+                    edtTitle.setError(getString(R.string.empty));
                 } else if (description.isEmpty()) {
-                    edtDescription.setError("Field can not be blank");
+                    edtDescription.setError(getString(R.string.empty));
                 } else {
                     note.setTitle(title);
                     note.setDescription(description);
@@ -146,11 +146,11 @@ public class NoteAddUpdateActivity extends AppCompatActivity {
         String dialogTitle, dialogMessage;
 
         if (isDialogClose) {
-            dialogTitle = "Batal";
-            dialogMessage = "Apakah anda ingin membatalkan perubahan pada form?";
+            dialogTitle = getString(R.string.cancel);
+            dialogMessage = getString(R.string.message_cancel);
         } else {
-            dialogMessage = "Apakah anda yakin ingin menghapus item ini?";
-            dialogTitle = "Hapus Note";
+            dialogMessage = getString(R.string.message_delete);
+            dialogTitle = getString(R.string.delete);
         }
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -159,7 +159,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity {
         alertDialogBuilder
                 .setMessage(dialogMessage)
                 .setCancelable(false)
-                .setPositiveButton("Ya", new DialogInterface.OnClickListener() {
+                .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (isDialogClose) {
                             finish();
@@ -174,7 +174,7 @@ public class NoteAddUpdateActivity extends AppCompatActivity {
                         }
                     }
                 })
-                .setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.no), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                     }

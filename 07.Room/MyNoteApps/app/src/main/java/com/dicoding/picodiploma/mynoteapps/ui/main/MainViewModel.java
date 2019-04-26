@@ -13,14 +13,11 @@ public class MainViewModel extends ViewModel {
 
     private NoteRepository mNoteRepository;
 
-    private LiveData<List<Note>> mAllNotes;
-
     public MainViewModel(Application application) {
         mNoteRepository = new NoteRepository(application);
-        mAllNotes = mNoteRepository.getAllNotes();
     }
 
     LiveData<List<Note>> getAllNotes() {
-        return mAllNotes;
+        return mNoteRepository.getAllNotes();
     }
 }

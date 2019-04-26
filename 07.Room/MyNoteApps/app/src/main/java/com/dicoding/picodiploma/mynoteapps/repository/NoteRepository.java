@@ -35,15 +35,6 @@ public class NoteRepository {
         });
     }
 
-    public void delete(final String idNote){
-        executorService.execute(new Runnable() {
-            @Override
-            public void run() {
-                mNotesDao.delete(idNote);
-            }
-        });
-    }
-
     public void delete(final Note note){
         executorService.execute(new Runnable() {
             @Override

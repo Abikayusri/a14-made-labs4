@@ -22,9 +22,6 @@ public interface NoteDao {
     @Delete()
     void delete(Note note);
 
-    @Query("DELETE from note WHERE id = :idNote")
-    void delete(String idNote);
-
     @Query("SELECT * from note ORDER BY id ASC")
     LiveData<List<Note>> getAllNotes();
 }

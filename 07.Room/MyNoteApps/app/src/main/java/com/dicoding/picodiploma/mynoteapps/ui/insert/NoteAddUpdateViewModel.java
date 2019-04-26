@@ -22,10 +22,6 @@ public class NoteAddUpdateViewModel extends ViewModel {
         mNoteRepository.update(note);
     }
 
-    public void delete(int idNote) {
-        mNoteRepository.delete(String.valueOf(idNote));
-    }
-
     public void delete(Note note) {
         mNoteRepository.delete(note);
     }

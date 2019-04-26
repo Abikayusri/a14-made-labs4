@@ -11,9 +11,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
-import android.widget.ProgressBar;
 
 import com.dicoding.picodiploma.mynoteapps.R;
 import com.dicoding.picodiploma.mynoteapps.database.Note;
@@ -29,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
 
     private NoteAdapter adapter;
-
-    private static final String EXTRA_STATE = "EXTRA_STATE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
         if (data != null) {
             if (requestCode == NoteAddUpdateActivity.REQUEST_ADD) {
                 if (resultCode == NoteAddUpdateActivity.RESULT_ADD) {
-                    showSnackbarMessage("Satu item berhasil ditambahkan");
+                    showSnackbarMessage(getString(R.string.added));
                 }
             } else if (requestCode == REQUEST_UPDATE) {
                 if (resultCode == NoteAddUpdateActivity.RESULT_UPDATE) {
-                    showSnackbarMessage("Satu item berhasil diubah");
+                    showSnackbarMessage(getString(R.string.changed));
                 } else if (resultCode == NoteAddUpdateActivity.RESULT_DELETE) {
-                    showSnackbarMessage("Satu item berhasil dihapus");
+                    showSnackbarMessage(getString(R.string.deleted));
                 }
             }
         }

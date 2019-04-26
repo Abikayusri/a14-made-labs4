@@ -24,11 +24,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteViewHolder
     private final ArrayList<Note> listNotes = new ArrayList<>();
     private final Activity activity;
 
-    public NoteAdapter(Activity activity) {
+    NoteAdapter(Activity activity) {
         this.activity = activity;
     }
 
-    public void setListNotes(List<Note> listNotes) {
+    void setListNotes(List<Note> listNotes) {
         final NoteDiffCallback diffCallback = new NoteDiffCallback(this.listNotes, listNotes);
         final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
 
